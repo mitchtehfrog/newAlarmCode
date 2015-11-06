@@ -23,22 +23,14 @@ public class MainActivity extends Activity {
     protected static List<Alarm> alarmArrayList;
     protected static int relevantPosition;
     protected static ArrayAdapter<Alarm> arrayAdapter;
-    private Alarm alarm;
-    private int hours;
-    private int minutes;
-    private long timeFromNow;
     MediaPlayer player;
+    private long timeFromNow;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Context context = getApplicationContext();
-        timeFromNow = System.currentTimeMillis() + (hours * 3600 * 1000)+(minutes*60*1000);
-
-        alarm = new Alarm(context, timeFromNow, hours, minutes);
-        hours = 0;
-        minutes = 0;
 
         listView = (ListView) findViewById(R.id.alarmList);
 
@@ -130,10 +122,10 @@ public class MainActivity extends Activity {
 
                 }
                 player.stop();
-                done = true;   // THE POSITION OF THIS STATEMENT MESSES UP THE PROGRAM
+                  // THE POSITION OF THIS STATEMENT MESSES UP THE PROGRAM
 
             }
-
+            done = true;
         }
 
     }

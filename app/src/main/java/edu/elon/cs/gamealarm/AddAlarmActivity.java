@@ -58,7 +58,7 @@ public class AddAlarmActivity extends Activity {
         int nowMinutes = c.get(Calendar.MINUTE);
         int diffHours = Math.abs(nowHours - hours);
         int diffMinutes = Math.abs(nowMinutes - minutes);
-        long timeFromNow = (diffHours * 60 * 60 * 1000) + (minutes * 60 * 1000);
+        long timeFromNow = System.currentTimeMillis() + (diffHours * 60 * 60 * 1000) + (diffMinutes * 60 * 1000);
         Alarm alarm = new Alarm(context, timeFromNow, hours, minutes);
         System.out.println("intent string = " + getIntent().getStringExtra("action"));
         if (getIntent().getStringExtra("action").equals("add")) {

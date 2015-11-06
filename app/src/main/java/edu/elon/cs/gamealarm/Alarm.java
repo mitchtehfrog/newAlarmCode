@@ -11,7 +11,7 @@ import android.widget.Toast;
 /**
  * Created by Michael on 10/22/2015.
  */
-public class Alarm extends BroadcastReceiver{
+public class Alarm{
 
     private int hours, minutes;
     private boolean isOn = false;
@@ -20,22 +20,31 @@ public class Alarm extends BroadcastReceiver{
         this.hours = hours;
         this.minutes = minutes;
         AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
-        Intent intent = new Intent(context, Alarm.class);
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 0, intent, 0);
-        AlarmManager.AlarmClockInfo info = new AlarmManager.AlarmClockInfo(System.currentTimeMillis() + timeFromNow, pendingIntent);
+        Intent intent = new Intent(context,Minigame1Activity.class); //testing for something
+        PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, intent, 0);
+        AlarmManager.AlarmClockInfo info = new AlarmManager.AlarmClockInfo(timeFromNow, pendingIntent);
         alarmManager.setAlarmClock(info, pendingIntent);
     }
 
-    public void onReceive(Context context, Intent intent){
-        PowerManager powerManager = (PowerManager) context.getSystemService(Context.POWER_SERVICE);
-        PowerManager.WakeLock wakeLock = powerManager.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK ,"");
-        wakeLock.acquire();
+//    @Override
+//    public void onReceive(Context context, Intent intent){
+//        AlarmManager manager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+//
+//        PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_CANCEL_CURRENT);
+//        // AlarmManager.AlarmClockInfo info = new AlarmManager.AlarmClockInfo(System.currentTimeMillis(), pendingIntent);
+//        // manager.setAlarmClock(info, pendingIntent);
+//        PowerManager powerManager = (PowerManager) context.getSystemService(Context.POWER_SERVICE);
+//        PowerManager.WakeLock wakeLock = powerManager.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "");
+//        wakeLock.acquire();
+//
+//
+//        Intent i = new Intent(context, Minigame1Activity.class);
+//        //startActivity(intent);
+//
+//        wakeLock.release();
+//    }
 
 
-        Toast.makeText(context, "Alarm !!!!!!!!!!", Toast.LENGTH_LONG).show(); // For example
-
-        wakeLock.release();
-    }
     //public void setAlarm(Context context){
       //  AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
        // Intent intent = new Intent(context, Alarm.class);
