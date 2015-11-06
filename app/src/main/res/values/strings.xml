@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Game Alarm</string>
+    <string name="delete_button_text">Delete</string>
+    <string name="edit_button_text">Edit</string>
+    <string name="add_button_text">+</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_edit_or_delete">Edit Your Alarm</string>
+    <string name="title_activity_add_alarm">Add Your New Alarm</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_minigame1">Minigame1Activity</string>
+    <string name="title_activity_doot_doot">DootDootActivity</string>
+</resources>
