@@ -25,7 +25,6 @@ public class Alarm{
         this.hours = hours;
         this.minutes = minutes;
         AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
-
         Random r = new Random();
         int num = r.nextInt(3);
 
@@ -44,6 +43,12 @@ public class Alarm{
         }
         PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, intent, 0);
         AlarmManager.AlarmClockInfo info = new AlarmManager.AlarmClockInfo(timeFromNow, pendingIntent);
+
+        Intent intent1 = new Intent(context,Minigame1Activity.class);
+        Intent intent2 = new Intent(context,RollerBallActivity.class);
+        Intent intent3 = new Intent(context,MiniGame3Activity.class);
+
+
 
         alarmManager.setAlarmClock(info, pendingIntent);
     }
