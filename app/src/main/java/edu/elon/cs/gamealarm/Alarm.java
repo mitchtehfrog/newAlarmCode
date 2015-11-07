@@ -40,6 +40,7 @@ public class Alarm{
                 break;
 
             case 2:
+                // this mini game doesn't run because of null pointer exception.
                 intent = new Intent(context,MiniGame3Activity.class);
                 break;
         }
@@ -54,31 +55,6 @@ public class Alarm{
 
         alarmManager.setAlarmClock(info, pendingIntent);
     }
-//    @Override
-//    public void onReceive(Context context, Intent intent){
-//        AlarmManager manager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
-//
-//        PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_CANCEL_CURRENT);
-//        // AlarmManager.AlarmClockInfo info = new AlarmManager.AlarmClockInfo(System.currentTimeMillis(), pendingIntent);
-//        // manager.setAlarmClock(info, pendingIntent);
-//        PowerManager powerManager = (PowerManager) context.getSystemService(Context.POWER_SERVICE);
-//        PowerManager.WakeLock wakeLock = powerManager.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "");
-//        wakeLock.acquire();
-//
-//
-//        Intent i = new Intent(context, Minigame1Activity.class);
-//        //startActivity(intent);
-//
-//        wakeLock.release();
-//    }
-
-
-    //public void setAlarm(Context context){
-      //  AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
-       // Intent intent = new Intent(context, Alarm.class);
-       // PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 0, intent, 0);
-        //alarmManager.setAlarmClock(AlarmManager.AlarmClockInfo, pendingIntent );
-   // }
 
     public void setOn(boolean isOn){
         this.isOn = isOn;

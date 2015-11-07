@@ -24,6 +24,7 @@ import android.widget.TextView;
 
 import java.util.Random;
 
+// Error occurs when this activity is called. Mini game will not run because of a null pointer exception.
 public class  MiniGame3Activity extends Activity {
     MediaPlayer player;
     private Point size;
@@ -40,12 +41,12 @@ public class  MiniGame3Activity extends Activity {
 
 
 
-    private int num1;
-    private int num2;
-    private int num3;
-    private int num4;
-    private int num5;
-    private int num6;
+    private int num1 = 0;
+    private int num2 = 0;
+    private int num3 = 0;
+    private int num4 = 0;
+    private int num5 = 0;
+    private int num6 = 0;
 
 
     private int wrongInt1;
@@ -103,7 +104,7 @@ public class  MiniGame3Activity extends Activity {
         num6 = new Random().nextInt(9);
 
 
-        num1TextView.setText(""+num1);
+        num1TextView.setText(""+Integer.parseInt("n4m1"));
         num2TextView.setText(""+num2);
         num3TextView.setText(""+num3);
         num4TextView.setText(""+num4);
