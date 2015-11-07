@@ -95,40 +95,40 @@ public class MainActivity extends Activity {
         startActivity(intent);
     }
 
-    public void gameLoop() {
-        boolean done = false;
-        while (done == false) {
-            if (timeFromNow >= System.currentTimeMillis()) {
-
-                player = MediaPlayer.create(MainActivity.this, R.raw.alarmnoise);
-                player.start();
-
-                Random r = new Random();
-                int num = r.nextInt(3);
-
-                switch (num) {
-                    case 0:
-                        Intent intent = new Intent(this, Minigame1Activity.class);
-                        startActivity(intent);
-                        break;
-                    case 1:
-                        Intent intent2 = new Intent(this, RollerBallActivity.class);
-                        startActivity(intent2);
-                        break;
-                    case 2:
-                        Intent intent3 = new Intent(this, MiniGame3Activity.class);
-                        startActivity(intent3);
-                        break;
-
-                }
-                player.stop();
-                  // THE POSITION OF THIS STATEMENT MESSES UP THE PROGRAM
-
-            }
-            done = true;
-        }
-
-    }
+//    public void gameLoop() {
+//        boolean done = false;
+//        while (done == false) {
+//            if (timeFromNow >= System.currentTimeMillis()) {
+//
+//                player = MediaPlayer.create(MainActivity.this, R.raw.alarmnoise);
+//                player.start();
+//
+//                Random r = new Random();
+//                int num = r.nextInt(3);
+//
+//                switch (num) {
+//                    case 0:
+//                        Intent intent = new Intent(this, Minigame1Activity.class);
+//                        startActivity(intent);
+//                        break;
+//                    case 1:
+//                        Intent intent2 = new Intent(this, RollerBallActivity.class);
+//                        startActivity(intent2);
+//                        break;
+//                    case 2:
+//                        Intent intent3 = new Intent(this, MiniGame3Activity.class);
+//                        startActivity(intent3);
+//                        break;
+//
+//                }
+//                player.stop();
+//                  // THE POSITION OF THIS STATEMENT MESSES UP THE PROGRAM
+//
+//            }
+//            done = true;
+//        }
+//
+//    }
 
     // RACHEL DID THIS ADD IT TO THE NEW CODE CHANGES
     //NOTE: The switch only works if you CLICK on the widget specifically
@@ -140,7 +140,7 @@ public class MainActivity extends Activity {
             //code for if the switch is on to activate the alarms at the alotted time
 
                 System.out.println("ayy lmao");
-                gameLoop();
+
 
             }
         }

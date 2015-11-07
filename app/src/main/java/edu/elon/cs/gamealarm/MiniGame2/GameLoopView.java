@@ -1,10 +1,12 @@
 package edu.elon.cs.gamealarm.MiniGame2;
 
+import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Point;
+import android.media.MediaPlayer;
 import android.util.AttributeSet;
 import android.view.Display;
 import android.view.SurfaceHolder;
@@ -13,11 +15,13 @@ import android.view.WindowManager;
 
 import java.util.Random;
 
+import edu.elon.cs.gamealarm.R;
+
 /**
  * Copyright JohnAnge Kernodle and Zack Layne
  */
 public class GameLoopView extends SurfaceView implements SurfaceHolder.Callback {
-
+    MediaPlayer player;
     private GameLoopThread thread;
     private SurfaceHolder surfaceHolder;
     private Context context;
@@ -136,7 +140,8 @@ public class GameLoopView extends SurfaceView implements SurfaceHolder.Callback 
         // the main loop
         @Override
         public void run() {
-
+            player = MediaPlayer.create(context, R.raw.alarmnoise);
+            player.start();
             lastTime = System.currentTimeMillis();
 
             while (isRunning) {
@@ -204,7 +209,8 @@ public class GameLoopView extends SurfaceView implements SurfaceHolder.Callback 
                     }
 
                     if (greenSquareAmount>2) {
-                        //send back
+                        player.stop();
+                        ((Activity) context).finish();
                         System.out.println("complete");
                     }
                     // update/draw

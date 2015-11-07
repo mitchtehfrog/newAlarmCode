@@ -10,6 +10,7 @@ import android.content.DialogInterface;
 import android.graphics.Color;
 import android.graphics.Point;
 import android.graphics.drawable.ColorDrawable;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.Display;
@@ -24,7 +25,7 @@ import android.widget.TextView;
 import java.util.Random;
 
 public class  MiniGame3Activity extends Activity {
-
+    MediaPlayer player;
     private Point size;
 
     private TextView countdown;
@@ -70,7 +71,8 @@ public class  MiniGame3Activity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        player = MediaPlayer.create(MiniGame3Activity.this, R.raw.alarmnoise);
+        player.start();
         countdown = (TextView)findViewById(R.id.countDown);
         startButton = (Button)findViewById(R.id.startButton);
         memorizeText = (TextView)findViewById(R.id.memorizeText);
@@ -379,7 +381,8 @@ public class  MiniGame3Activity extends Activity {
         }
 
         if (b1correct && b2correct && b3correct && b4correct){
-            //send back
+            player.stop();
+            finish();
             System.out.println("done");
         }else{
             System.out.println("wrong");

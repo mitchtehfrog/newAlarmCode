@@ -25,6 +25,7 @@ public class Alarm{
         this.hours = hours;
         this.minutes = minutes;
         AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+
         Random r = new Random();
         int num = r.nextInt(3);
 

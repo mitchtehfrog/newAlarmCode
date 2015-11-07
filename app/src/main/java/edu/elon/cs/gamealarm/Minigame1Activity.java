@@ -3,7 +3,9 @@ package edu.elon.cs.gamealarm;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Point;
+import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.Display;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -18,7 +20,7 @@ import java.util.Random;
 public class Minigame1Activity extends Activity {
 
     private int shapeInt;
-
+    MediaPlayer player;
     private ImageView circle;
     private ImageView circleOutline;
 
@@ -42,6 +44,12 @@ public class Minigame1Activity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        player = MediaPlayer.create(Minigame1Activity.this, R.raw.alarmnoise);
+        player.start();
+        player.setLooping(true);
+        //player.setLooping(true);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_minigame1);
 
@@ -209,8 +217,9 @@ public class Minigame1Activity extends Activity {
                 oval.getVisibility() == View.INVISIBLE&&
                 trapezoid.getVisibility() == View.INVISIBLE&&
                 hexagon.getVisibility() == View.INVISIBLE){
-
-            //send back to alarm
+            player.setLooping(false);
+            player.stop();
+            finish();
         }
     }
 
