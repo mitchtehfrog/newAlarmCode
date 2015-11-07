@@ -25,8 +25,10 @@ public class EditOrDeleteActivity extends Activity {
     }
 
     public void onDeleteClick(View view){
+        MainActivity.alarmArrayList.get(MainActivity.relevantPosition).alarmManager.cancel(MainActivity.alarmArrayList.get(MainActivity.relevantPosition).pendingIntent);
         MainActivity.alarmArrayList.remove(MainActivity.relevantPosition);
         MainActivity.arrayAdapter.notifyDataSetChanged();
+
         finish();
     }
 

@@ -19,12 +19,14 @@ public class Alarm{
 
     private int hours, minutes;
     private boolean isOn = false;
+    protected AlarmManager alarmManager;
+    protected PendingIntent pendingIntent;
 
     public Alarm(Context context, long timeFromNow, int hours,  int minutes){
         Intent intent = null;
         this.hours = hours;
         this.minutes = minutes;
-        AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+        alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
         Random r = new Random();
         int num = r.nextInt(3);
 
@@ -41,7 +43,7 @@ public class Alarm{
                 intent = new Intent(context,MiniGame3Activity.class);
                 break;
         }
-        PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, intent, 0);
+        pendingIntent = PendingIntent.getActivity(context, 0, intent, 0);
         AlarmManager.AlarmClockInfo info = new AlarmManager.AlarmClockInfo(timeFromNow, pendingIntent);
 
         Intent intent1 = new Intent(context,Minigame1Activity.class);
@@ -52,7 +54,6 @@ public class Alarm{
 
         alarmManager.setAlarmClock(info, pendingIntent);
     }
-
 //    @Override
 //    public void onReceive(Context context, Intent intent){
 //        AlarmManager manager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
