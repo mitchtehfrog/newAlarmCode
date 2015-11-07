@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     tools:context=".RollerBallActivity">
 
-    <com.example.elon.rollerball.GameLoopView
+    <edu.elon.cs.gamealarm.MiniGame2.GameLoopView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         />

@@ -8,6 +8,10 @@ import android.content.Intent;
 import android.os.PowerManager;
 import android.widget.Toast;
 
+import java.util.Random;
+
+import edu.elon.cs.gamealarm.MiniGame2.RollerBallActivity;
+
 /**
  * Created by Michael on 10/22/2015.
  */
@@ -17,12 +21,29 @@ public class Alarm{
     private boolean isOn = false;
 
     public Alarm(Context context, long timeFromNow, int hours,  int minutes){
+        Intent intent = null;
         this.hours = hours;
         this.minutes = minutes;
         AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
-        Intent intent = new Intent(context,Minigame1Activity.class); //testing for something
+        Random r = new Random();
+        int num = r.nextInt(3);
+
+        switch(num) {
+            case 0:
+                intent = new Intent(context,Minigame1Activity.class);
+                break;
+
+            case 1:
+                intent = new Intent(context,RollerBallActivity.class);
+                break;
+
+            case 2:
+                intent = new Intent(context,MiniGame3Activity.class);
+                break;
+        }
         PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, intent, 0);
         AlarmManager.AlarmClockInfo info = new AlarmManager.AlarmClockInfo(timeFromNow, pendingIntent);
+
         alarmManager.setAlarmClock(info, pendingIntent);
     }
 

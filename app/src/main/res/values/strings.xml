@@ -9,5 +9,7 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_minigame1">Minigame1Activity</string>
+    <string name="title_activity_minigame2">RollerBallActivity</string>
+    <string name="title_activity_minigame3">MiniGame3Activity</string>
     <string name="title_activity_doot_doot">DootDootActivity</string>
 </resources>

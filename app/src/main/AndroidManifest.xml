@@ -29,11 +29,23 @@
         </activity>
         <activity
             android:name=".Minigame1Activity"
-            android:label="@string/title_activity_minigame1" >
+            android:label="@string/title_activity_minigame1"
+            android:screenOrientation="portrait">
         </activity>
         <activity
             android:name=".DootDootActivity"
-            android:label="@string/title_activity_doot_doot" >
+            android:label="@string/title_activity_doot_doot"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".MiniGame2.RollerBallActivity"
+            android:label="@string/title_activity_minigame2"
+            android:screenOrientation="landscape">
+        </activity>
+        <activity
+            android:name=".MiniGame3Activity"
+            android:label="@string/title_activity_minigame3"
+            android:screenOrientation="portrait">
         </activity>
     </application>
 

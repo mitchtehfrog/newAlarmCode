@@ -15,6 +15,8 @@ public class DootDootActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doot_doot);
+        mediaPlayer = MediaPlayer.create(DootDootActivity.this, R.raw.alarmnoise);
+        mediaPlayer.start();
     }
 
 
